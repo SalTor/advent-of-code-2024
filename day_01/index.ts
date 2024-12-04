@@ -1,13 +1,31 @@
+import fs from "fs";
+
 {
   const inputA = [3, 4, 2, 1, 3, 3];
   const inputB = [4, 3, 5, 3, 9, 3];
 
   const expectedResult = 11;
 
-  const result = distanceGet(inputA, inputB);
+  console.info("Example run:", distanceGet(inputA, inputB));
+}
 
-  console.info("hello", { expectedResult, result });
-  console.assert(result === expectedResult, { result, expectedResult });
+{
+  const inputRaw = fs.readFileSync("input.txt", "utf8");
+
+  let inputA: Array<number> = [];
+  let inputB: Array<number> = [];
+
+  for (const row of inputRaw.split("\n")) {
+    let [num1, num2] = row.split("   ");
+    if (!num1 || !num2) continue;
+    inputA.push(parseInt(num1));
+    inputB.push(parseInt(num2));
+  }
+
+  inputA = [...inputA].sort((a, b) => a - b);
+  inputB = [...inputB].sort((a, b) => a - b);
+
+  console.info("Real run", distanceGet(inputA, inputB));
 }
 
 function distanceGet(inputA: Array<number>, inputB: Array<number>): number {
