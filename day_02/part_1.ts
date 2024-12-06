@@ -15,9 +15,14 @@
       return levels;
     });
 
+  let reports_safe_count = 0;
   for (const report of report_list) {
-    console.info("Report", report, "Is report safe?", is_report_safe(report));
+    if (is_report_safe(report)) {
+      reports_safe_count += 1;
+    }
   }
+
+  console.info("Example input, # of safe reports", reports_safe_count);
 }
 
 function is_report_safe(report: Array<number>) {
