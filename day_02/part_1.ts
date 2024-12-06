@@ -1,3 +1,5 @@
+import { getInput } from "../day_01/helpers";
+
 {
   const input = `7 6 4 2 1
 1 2 7 8 9
@@ -22,7 +24,26 @@
     }
   }
 
-  console.info("Example input, # of safe reports", reports_safe_count);
+  console.info("Example run: # of safe reports", reports_safe_count);
+}
+
+{
+  const input = getInput("./input_part_1.txt");
+
+  const report_list = input.map((report_raw) => {
+    const levels_raw = report_raw.split(" ");
+    const levels = levels_raw.map((level) => parseInt(level));
+    return levels;
+  });
+
+  let reports_safe_count = 0;
+  for (const report of report_list) {
+    if (is_report_safe(report)) {
+      reports_safe_count += 1;
+    }
+  }
+
+  console.info("Real run: # of safe reports", reports_safe_count);
 }
 
 function is_report_safe(report: Array<number>) {
