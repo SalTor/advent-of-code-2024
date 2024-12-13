@@ -12,7 +12,7 @@ import { getInput } from "./helpers";
   const listA: Array<number> = [];
   const listB: Array<number> = [];
 
-  const input = getInput("input_part_1.txt");
+  const input = getInput("part_1_official_inpput.txt");
 
   for (const row of input) {
     let [num1, num2] = row.split("   ");

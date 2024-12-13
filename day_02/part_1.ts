@@ -28,7 +28,7 @@ import { getInput } from "../day_01/helpers";
 }
 
 {
-  const input = getInput("./input_part_1.txt");
+  const input = getInput("./part_1_official_input.txt");
 
   const report_list = input.map((report_raw) => {
     const levels_raw = report_raw.split(" ");

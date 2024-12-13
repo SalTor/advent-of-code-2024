@@ -24,7 +24,7 @@ func TestDistanceGetExample(t *testing.T) {
 
 func TestDistanceGetOfficial(t *testing.T) {
 	fmt.Print("=== Test Start: Distance Get Official ===\n")
-	file, err := os.Open("input_part_1.txt")
+	file, err := os.Open("part_1_official_input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
